@@ -1,4 +1,4 @@
-import { nameValidRexExp, validEmailRexEpx} from "./helpers/regaxp"
+import { nameValidRexExp, validEmailRexEpx } from './helpers/regaxp'
 
 export const initialState = {
 	nameValue: {
@@ -17,7 +17,7 @@ export const initialState = {
 		error: '',
 	},
 }
- 
+
 export const SingnupReducer = (state, action) => {
 	switch (action.type) {
 		case 'NAMEVALUE':
@@ -55,8 +55,8 @@ export const SingnupReducer = (state, action) => {
 					error: nameValidRexExp.test(state.nameValue.value)
 						? ''
 						: state.nameValue.value === ''
-						? 'Выведите имя'
-						: 'имя пользователя должно состоять из цифр',
+						? 'Ведите имя'
+						: 'должен быть цифра',
 				},
 			}
 		case 'EMAILBLUR':
@@ -68,7 +68,7 @@ export const SingnupReducer = (state, action) => {
 					error: validEmailRexEpx.test(state.emailValue.value)
 						? ''
 						: state.emailValue.value === ''
-						? 'выведите email'
+						? 'Bедите email'
 						: 'gmail is not valid',
 				},
 			}
@@ -82,11 +82,11 @@ export const SingnupReducer = (state, action) => {
 						state.passwordValue.value.trim().length > 5
 							? ''
 							: state.passwordValue.value === ''
-							? 'выведите password'
+							? 'Ведите password'
 							: 'password дольжна быть вышше 5 цифра',
 				},
 			}
 		default:
-			break
+			return state
 	}
 }

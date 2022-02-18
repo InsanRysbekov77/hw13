@@ -1,9 +1,13 @@
 import React from 'react';
+import './Login.css'
 
 function Login() {
     return (
-        <div>
-            <h1>Insan</h1>
+        <div className="container">
+            <div className="app-wrapper">
+            <h1 className="form-success">LOGIN</h1>
+                <h1 className="form-success">Account Created!</h1>
+            </div>
         </div>
     );
 }
