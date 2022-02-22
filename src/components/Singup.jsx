@@ -27,9 +27,19 @@ const Signup = () => {
 	const passwordBlurHandler = () => {
 		dispacthLogin({ type: 'PASSWORDBLUR' })
 	}
+	const Posts = async () => {
+		const response = await fetch('https://react-http-login-12058-default-rtdb.firebaseio.com/Logines.json', {
+			method: 'POST',
+			body: JSON.stringify(login),
+			headers: {
+				'Content-type' : 'application/json',
+			}
+		})
+	}
 	const submitHandler = (event) => {
 		event.preventDefault()
 		console.log(login)
+		Posts()
 		return navigate('/Login')
 	}
 
